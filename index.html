@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Frequency</title>
+</head>
+<body>
+<script>
+    const word = (str) => {
+        return str.replace(/[.,]/g, "").toLowerCase().split(" ");
+    };
+
+    const wordFrequency = (wordsArr) => {const freq = {};
+        const uniqueWords = [...new Set(wordsArr)];
+
+        uniqueWords.forEach(word => {
+            freq[word] = wordsArr.filter(w => w === word).length;
+        });
+
+        return freq;
+    };
+
+    const text = "to create the app for develop the program application and to modify the application in the program.";
+    const allWords = word(text);
+    const frequency = wordFrequency(allWords);
+
+    console.log(frequency);
+</script>
+</body>
+</html>
